@@ -58,6 +58,8 @@ typings/
 
 # next.js build output
 .next
+
+# test files
 test/buidler-project/artifacts-dir/
 test/buidler-project/cache/
 test/buidler-project/testdir/
