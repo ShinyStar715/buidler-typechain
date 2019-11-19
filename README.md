@@ -1,57 +1,70 @@
-# Buidler TypeScript plugin boilerplate
+[![buidler](https://buidler.dev/buidler-plugin-badge.svg?1)](https://buidler.dev)
+# buidler-typechain
 
-This is a sample Buidler plugin written in TypeScript. Creating a Buidler plugin
-can be as easy as extracting a part of your config into a different file, 
-wrapping it in a function and publishing it to npm.
+Add [Typechain](https://www.github.com/ethereum-ts/TypeChain) tasks to your Buidler project!
 
-This sample project contains an example on how to do that, but also comes with 
-many more features:
+## What
 
-- A mocha test suit ready to use
-- TravisCI already setup
-- A package.json with scripts and publishing info
-- Examples on how to do different things
+[TypeChain](https://www.github.com/ethereum-ts/TypeChain) gives you Typescript bindings for your smart contracts. Now, your tests and frontend code can be typesafe and magically autocomplete smart contract function names!
 
 ## Installation
 
-We recommend developing Buidler plugins using yarn. To start working on your 
-project, just run
-
 ```bash
-npm install
+npm i buidler-typechain
 ```
 
-## Plugin development
+And add the following statement to your `buidler.config.js`:
 
-Make sure to read our [Plugin Development Guide](https://buidler.dev/guides/create-plugin.html) 
-to learn how to build a plugin, and our 
-[best practices to create high-quality plugins](https://buidler.dev/documentation/#plugin-development-best-practices).
+```js
+usePlugin("buidler-typechain);
+```
 
-## Testing
+## Tasks
 
-Running `npm run test` will run every test located in the `test/` folder. They 
-use [mocha](https://mochajs.org) and [chai](https://www.chaijs.com/), 
-but you can customize them.
+<_A description of each task added by this plugin. If it just overrides internal 
+tasks, this may not be needed_>
 
-We recommend creating unit tests for your own modules, and integration tests for 
-the interaction of the plugin with Buidler and its dependencies.
+This plugin adds the _typechain_ task to Buidler:
+```
+output of npx buidler help example
+``` 
 
-## Linting and autoformat
+## Environment extensions
 
-All all of Buidler projects use [prettier](https://prettier.io/) and 
-[tslint](https://palantir.github.io/tslint/).
+<_A description of each extension to the Buidler Runtime Environment_>
 
-You can check if your code style is correct by running `npm run lint`, and fix 
-it with `npm run lint:fix`.
+This plugin extends the Buidler Runtime Environment by adding an `example` field
+whose type is `ExampleBuidlerRuntimeEnvironmentField`.
 
-## Building the project
+## Configuration
 
-Just run `npm run buidl` ️👷‍
+<_A description of each extension to the BuidlerConfig or to its fields_>
 
-## README file
+This plugin extends the `BuidlerConfig`'s `ProjectPaths` object with an optional 
+`newPath` field.
 
-This README describes this boilerplate project, but won't be very useful to your
-plugin users.
+This is an example of how to set it:
 
-Take a look at `README-TEMPLATE.md` for an example of what a Buidler plugin's
-README should look like.
+```js
+module.exports = {
+  paths: {
+    newPath: "./new-path"
+  }
+};
+```
+
+## Usage
+
+<_A description of how to use this plugin. How to use the tasks if there are any, etc._>
+
+There are no additional steps you need to take for this plugin to work.
+
+Install it and access ethers through the Buidler Runtime Environment anywhere 
+you need it (tasks, scripts, tests, etc).
+
+## TypeScript support
+
+<_This section is needed if you are extending types in your plugin_>
+
+You need to add this to your `tsconfig.json`'s `files` array: 
+`"node_modules/<npm package name>/src/type-extensions.d.ts"`
