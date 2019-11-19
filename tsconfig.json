@@ -8,12 +8,13 @@
     "outDir": "./dist",
     "strict": true,
     "rootDirs": ["./src", "./test"],
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "preserveSymlinks": true
   },
   // "files": [], // Any Buidler plugin's main .d.ts has to be added here
-  "exclude": ["dist", "node_modules"],
+  "exclude": ["dist", "node_modules", "test/buidler-project/testdir"],
   "include": [
     "./test",
     "./src"    
-  ]
+  ],
 }
