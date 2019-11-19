@@ -53,6 +53,8 @@
     "typescript": "^3.7.2"
   },
   "peerDependencies": {
-    "@nomiclabs/buidler": "^1.0.1"
+    "@nomiclabs/buidler": "^1.0.1",
+    "ts-generator": "0.0.8",
+    "typechain": "^1.0.3"
   }
 }

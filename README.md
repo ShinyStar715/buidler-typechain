@@ -10,7 +10,7 @@ Add [Typechain](https://www.github.com/ethereum-ts/TypeChain) tasks to your Buid
 ## Installation
 
 ```bash
-npm i buidler-typechain
+npm i buidler-typechain typechain ts-generator
 ```
 
 And add the following statement to your `buidler.config.js`:

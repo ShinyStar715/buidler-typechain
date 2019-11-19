@@ -8,12 +8,15 @@ import fsExtra from "fs-extra";
 import { tsGenerator } from "ts-generator";
 import { TypeChain } from "typechain/dist/TypeChain";
 
+import { getDefaultTypechainConfig } from "./config";
+
 task(
   "typechain",
   "Generate Typechain typings for compiled contracts"
 ).setAction(async ({}, { config, run }) => {
+  const typechain = getDefaultTypechainConfig(config);
   const typechainTargets = ["ethers", "truffle", "web3-v1"];
-  if (!typechainTargets.includes(config.typechain!.target as string)) {
+  if (!typechainTargets.includes(typechain.target as string)) {
     throw new BuidlerPluginError(
       "Invalid Typechain target, please provide via buidler.config.js (typechain.target)"
     );
@@ -22,9 +25,7 @@ task(
   await run(TASK_COMPILE);
 
   console.log(
-    `Creating Typechain artifacts in directory ${
-      config.typechain!.outDir
-    } for target ${config.typechain!.target}`
+    `Creating Typechain artifacts in directory ${typechain.outDir} for target ${typechain.target}`
   );
 
   const cwd = process.cwd();
@@ -34,8 +35,8 @@ task(
       cwd,
       rawConfig: {
         files: `${config.paths.artifacts}/*.json`,
-        outDir: config.typechain!.outDir,
-        target: config.typechain!.target as string
+        outDir: typechain.outDir,
+        target: typechain.target as string
       }
     })
   );
