@@ -62,4 +62,4 @@ typings/
 # test files
 test/buidler-project/artifacts-dir/
 test/buidler-project/cache/
-test/buidler-project/testdir/
+testdir/

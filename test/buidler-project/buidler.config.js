@@ -12,7 +12,7 @@ module.exports = {
     artifacts: "artifacts-dir"
   },
   typechain: {
-    outDir: "testdir",
+    outDir: "../../testdir",
     target: "ethers"
   }
 };
