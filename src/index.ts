@@ -1,4 +1,7 @@
-import { TASK_CLEAN, TASK_COMPILE } from "@nomiclabs/buidler/builtin-tasks/task-names";
+import {
+  TASK_CLEAN,
+  TASK_COMPILE
+} from "@nomiclabs/buidler/builtin-tasks/task-names";
 import { task } from "@nomiclabs/buidler/config";
 import { BuidlerPluginError } from "@nomiclabs/buidler/plugins";
 import fsExtra from "fs-extra";
