@@ -5,5 +5,14 @@ const { loadPluginFile } = require("@nomiclabs/buidler/plugins-testing");
 loadPluginFile(__dirname + "/../../src/index");
 
 module.exports = {
-  defaultNetwork: "buidlerevm"
+  solc: {
+    version: "0.5.1"
+  },
+  paths: {
+    artifacts: "artifacts-dir"
+  },
+  typechain: {
+    outDir: "testdir",
+    target: "ethers"
+  }
 };
