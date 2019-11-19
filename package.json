@@ -1,9 +1,9 @@
 {
-  "name": "@nomiclabs/buidler-ts-plugin-boilerplate",
+  "name": "buidler-typechain",
   "version": "0.0.1",
   "description": "Buidler TypeScript plugin boilerplate",
-  "repository": "github:nomiclabs/buidler-ts-plugin-boilerplate",
-  "author": "Nomic Labs LLC",
+  "repository": "github:rhlsthrm/buidler-typechain.git",
+  "author": "Rahul Sethuram",
   "license": "MIT",
   "main": "dist/src/index.js",
   "types": "dist/src/index.d.ts",
@@ -29,22 +29,33 @@
   ],
   "devDependencies": {
     "@nomiclabs/buidler": "^1.0.1",
-    "@types/chai": "^4.1.7",
-    "@types/fs-extra": "^5.0.4",
-    "@types/mocha": "^5.2.5",
-    "@types/node": "^8.10.38",
+    "@types/chai": "^4.2.5",
+    "@types/fs-extra": "^8.0.1",
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^12.12.10",
+    "@types/rimraf": "^2.0.3",
     "chai": "^4.2.0",
-    "dotenv": "^6.2.0",
-    "mocha": "^5.2.0",
-    "prettier": "^1.17.0",
-    "source-map-support": "^0.5.12",
-    "ts-node": "^8.1.0",
-    "tslint": "^5.16.0",
+    "dotenv": "^8.2.0",
+    "ethers": "^4.0.39",
+    "mocha": "^6.2.2",
+    "prettier": "^1.19.1",
+    "source-map-support": "^0.5.16",
+    "ts-node": "^8.5.2",
+    "tslint": "^5.20.1",
     "tslint-config-prettier": "^1.18.0",
     "tslint-plugin-prettier": "^2.0.1",
-    "typescript": "^3.4.5"
+    "typechain": "^1.0.3",
+    "typechain-target-ethers": "^1.0.2",
+    "typechain-target-truffle": "^1.0.1",
+    "typechain-target-web3-v1": "^1.0.1",
+    "typescript": "^3.7.2"
   },
   "peerDependencies": {
-    "@nomiclabs/buidler": "^1.0.1"
+    "@nomiclabs/buidler": "^1.0.1",
+    "ethers": "^4.0.39",
+    "typechain": "^1.0.3",
+    "typechain-target-ethers": "^1.0.2",
+    "typechain-target-truffle": "^1.0.1",
+    "typechain-target-web3-v1": "^1.0.1"
   }
 }
