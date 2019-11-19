@@ -1,14 +1,40 @@
-import { extendEnvironment } from "@nomiclabs/buidler/config";
-import { lazyObject } from "@nomiclabs/buidler/plugins";
+import { TASK_COMPILE } from "@nomiclabs/buidler/builtin-tasks/task-names";
+import { task } from "@nomiclabs/buidler/config";
+import { BuidlerPluginError } from "@nomiclabs/buidler/plugins";
+import { tsGenerator } from "ts-generator";
+import { TypeChain } from "typechain/dist/TypeChain";
 
-import { ExampleBuidlerRuntimeEnvironmentField } from "./ExampleBuidlerRuntimeEnvironmentField";
+task(
+  "typechain",
+  "Generate Typechain typings for compiled contracts"
+).setAction(async ({}, { config, run }) => {
+  const typechainTargets = ["ethers", "truffle", "web3-v1"];
+  if (!typechainTargets.includes(config.typechain!.target as string)) {
+    throw new BuidlerPluginError(
+      "Invalid Typechain target, please provide via buidler.config.js (typechain.target)"
+    );
+  }
 
-// Everything in a plugin must happen inside an exported function
-export default function() {
-  extendEnvironment(env => {
-    // We add a field to the Buidler Runtime Environment here.
-    // We use lazyObject to avoid initializing things until they are actually
-    // needed.
-    env.example = lazyObject(() => new ExampleBuidlerRuntimeEnvironmentField());
-  });
-}
+  await run(TASK_COMPILE);
+
+  console.log(
+    `Creating Typechain artifacts in directory ${
+      config.typechain!.outDir
+    } for target ${config.typechain!.target}`
+  );
+
+  const cwd = process.cwd();
+  await tsGenerator(
+    { cwd },
+    new TypeChain({
+      cwd,
+      rawConfig: {
+        files: `${config.paths.artifacts}/*.json`,
+        outDir: config.typechain!.outDir,
+        target: config.typechain!.target as string
+      }
+    })
+  );
+
+  console.log(`Successfully generated Typechain artifacts!`);
+});
