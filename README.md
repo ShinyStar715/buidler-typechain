@@ -21,46 +21,31 @@ usePlugin("buidler-typechain);
 
 ## Tasks
 
-<_A description of each task added by this plugin. If it just overrides internal 
-tasks, this may not be needed_>
-
 This plugin adds the _typechain_ task to Buidler:
 ```
-output of npx buidler help example
+Generate Typechain typings for compiled contracts
 ``` 
-
-## Environment extensions
-
-<_A description of each extension to the Buidler Runtime Environment_>
-
-This plugin extends the Buidler Runtime Environment by adding an `example` field
-whose type is `ExampleBuidlerRuntimeEnvironmentField`.
 
 ## Configuration
 
 <_A description of each extension to the BuidlerConfig or to its fields_>
 
-This plugin extends the `BuidlerConfig`'s `ProjectPaths` object with an optional 
-`newPath` field.
+This plugin extends the `BuidlerConfig` optional `typechain` object. The object contains two fields, `outDir` and `target`. `outDir` is the output directory of the artifacts that TypeChain creates (defaults to `typechain`). `target` is one of the targets specified by the TypeChain [docs](https://github.com/ethereum-ts/TypeChain#cli) (defaults to `ethers`).
 
 This is an example of how to set it:
 
 ```js
 module.exports = {
-  paths: {
-    newPath: "./new-path"
+  typechain: {
+    outDir: "src/types",
+    target: "web3-v1"
   }
 };
 ```
 
 ## Usage
 
-<_A description of how to use this plugin. How to use the tasks if there are any, etc._>
-
-There are no additional steps you need to take for this plugin to work.
-
-Install it and access ethers through the Buidler Runtime Environment anywhere 
-you need it (tasks, scripts, tests, etc).
+`npx buidler typechain` - Compiles and generates Typescript typings for your contracts.
 
 ## TypeScript support
 
