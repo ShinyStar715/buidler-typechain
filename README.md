@@ -41,6 +41,10 @@ module.exports = {
 };
 ```
 
+## Usage
+
+`npx buidler typechain` - Compiles and generates Typescript typings for your contracts.
+
 Example Waffle + Ethers test that uses typedefs for contracts:
 ```ts
 import { ethers } from "@nomiclabs/buidler";
@@ -89,9 +93,7 @@ describe("Counter", () => {
 });
 ```
 
-## Usage
-
-`npx buidler typechain` - Compiles and generates Typescript typings for your contracts.
+See this [starter kit](https://github.com/rhlsthrm/typescript-solidity-dev-starter-kit) for a full example!
 
 ## TypeScript support
 
