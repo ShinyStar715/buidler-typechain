@@ -10,7 +10,7 @@ Add [Typechain](https://www.github.com/ethereum-ts/TypeChain) tasks to your Buid
 ## Installation
 
 ```bash
-npm i buidler-typechain typechain ts-generator typechain-target-ethers typechain-target-truffle typechain-target-web3-v1
+npm i buidler-typechain "typechain@^1.0.0" ts-generator "typechain-target-ethers@^1.0.0-beta.2" typechain-target-truffle typechain-target-web3-v1
 ```
 
 And add the following statement to your `buidler.config.js`:
