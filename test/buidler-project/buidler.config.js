@@ -6,13 +6,13 @@ loadPluginFile(__dirname + "/../../src/index");
 
 module.exports = {
   solc: {
-    version: "0.5.1"
+    version: "0.6.8",
   },
   paths: {
-    artifacts: "artifacts-dir"
+    artifacts: "artifacts-dir",
   },
   typechain: {
     outDir: "../../testdir",
-    target: "ethers"
-  }
+    target: "ethers-v4",
+  },
 };

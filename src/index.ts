@@ -1,6 +1,6 @@
 import {
   TASK_CLEAN,
-  TASK_COMPILE
+  TASK_COMPILE,
 } from "@nomiclabs/buidler/builtin-tasks/task-names";
 import { task } from "@nomiclabs/buidler/config";
 import { BuidlerPluginError } from "@nomiclabs/buidler/plugins";
@@ -15,7 +15,7 @@ task(
   "Generate Typechain typings for compiled contracts"
 ).setAction(async ({}, { config, run }) => {
   const typechain = getDefaultTypechainConfig(config);
-  const typechainTargets = ["ethers", "truffle", "web3-v1"];
+  const typechainTargets = ["ethers-v4", "truffle", "web3-v1"];
   if (!typechainTargets.includes(typechain.target as string)) {
     throw new BuidlerPluginError(
       "Invalid Typechain target, please provide via buidler.config.js (typechain.target)"
@@ -36,8 +36,8 @@ task(
       rawConfig: {
         files: `${config.paths.artifacts}/*.json`,
         outDir: typechain.outDir,
-        target: typechain.target as string
-      }
+        target: typechain.target as string,
+      },
     })
   );
 

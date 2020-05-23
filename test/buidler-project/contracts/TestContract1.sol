@@ -1,12 +1,12 @@
-pragma solidity 0.5.1;
+pragma solidity 0.6.8;
+
 
 contract TestContract1 {
-
-    uint amount;
+    uint256 amount;
 
     string message = "placeholder";
 
-    constructor(uint _amount) public {
+    constructor(uint256 _amount) public {
         amount = _amount;
     }
 }

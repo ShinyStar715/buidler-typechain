@@ -1,19 +1,19 @@
-pragma solidity 0.5.1;
+pragma solidity 0.6.8;
 
 // import "./libraries/SafeMath.sol";
 import "./TestContract1.sol";
 
-contract TestContract {
 
+contract TestContract {
     TestContract1 tc1;
 
     // using SafeMath for uint256;
 
-    uint amount;
+    uint256 amount;
 
     string message = "placeholder";
 
-    constructor(uint _amount) public {
+    constructor(uint256 _amount) public {
         amount = _amount + 20;
     }
 }
