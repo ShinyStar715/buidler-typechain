@@ -1,5 +1,8 @@
 [![buidler](https://buidler.dev/buidler-plugin-badge.svg?1)](https://buidler.dev)
+
 # buidler-typechain
+
+_Updated for TypeChain v2!_
 
 Add [Typechain](https://www.github.com/ethereum-ts/TypeChain) tasks to your Buidler project!
 
@@ -10,21 +13,22 @@ Add [Typechain](https://www.github.com/ethereum-ts/TypeChain) tasks to your Buid
 ## Installation
 
 ```bash
-npm i buidler-typechain "typechain@^1.0.0" ts-generator "typechain-target-ethers@^1.0.0-beta.2" typechain-target-truffle typechain-target-web3-v1
+npm i buidler-typechain typechain@^2.0.0 ts-generator @typechain/ethers-v4 @typechain/truffle-v5 @typechain/web3-v1
 ```
 
 And add the following statement to your `buidler.config.js`:
 
 ```js
-usePlugin("buidler-typechain);
+usePlugin("buidler-typechain");
 ```
 
 ## Tasks
 
 This plugin adds the _typechain_ task to Buidler:
+
 ```
 Generate Typechain typings for compiled contracts
-``` 
+```
 
 ## Configuration
 
@@ -36,8 +40,8 @@ This is an example of how to set it:
 module.exports = {
   typechain: {
     outDir: "src/types",
-    target: "ethers"
-  }
+    target: "ethers-v4",
+  },
 };
 ```
 
@@ -46,13 +50,14 @@ module.exports = {
 `npx buidler typechain` - Compiles and generates Typescript typings for your contracts.
 
 Example Waffle + Ethers test that uses typedefs for contracts:
+
 ```ts
 import { ethers } from "@nomiclabs/buidler";
 import chai from "chai";
 import { deployContract, getWallets, solidity } from "ethereum-waffle";
 
 import CounterArtifact from "../build/Counter.json";
-import { Counter } from "../typechain/Counter"
+import { Counter } from "../typechain/Counter";
 
 chai.use(solidity);
 const { expect } = chai;
@@ -66,7 +71,7 @@ describe("Counter", () => {
 
   beforeEach(async () => {
     // cast as type
-    counter = await deployContract(wallet, CounterArtifact) as Counter;
+    counter = (await deployContract(wallet, CounterArtifact)) as Counter;
 
     // function name is available as part of types
     const initialCount = await counter.getCount();
@@ -97,5 +102,5 @@ See this [starter kit](https://github.com/rhlsthrm/typescript-solidity-dev-start
 
 ## TypeScript support
 
-You need to add this to your `tsconfig.json`'s `files` array: 
+You need to add this to your `tsconfig.json`'s `files` array:
 `"node_modules/buidler-typechain/src/type-extensions.d.ts"`
