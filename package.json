@@ -1,6 +1,6 @@
 {
   "name": "buidler-typechain",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Buidler TypeScript plugin boilerplate",
   "repository": "github:rhlsthrm/buidler-typechain.git",
   "author": "Rahul Sethuram",
